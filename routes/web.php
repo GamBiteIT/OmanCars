@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarsController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\OrganizationsController;
-use App\Http\Controllers\ReportsController;
-use App\Http\Controllers\UsersController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -140,3 +141,24 @@ Route::get('reports', [ReportsController::class, 'index'])
 Route::get('/img/{path}', [ImagesController::class, 'show'])
     ->where('path', '.*')
     ->name('image');
+
+Route::get('cars',[CarsController::class,'index'])->name('cars')->middleware('auth');
+Route::get('cars/create', [CarsController::class, 'create'])
+    ->name('cars.create')
+    ->middleware('auth');
+
+Route::post('cars', [CarsController::class, 'store'])
+    ->name('cars.store')
+    ->middleware('auth');
+
+Route::get('cars/{car}/edit', [CarsController::class, 'edit'])
+    ->name('cars.edit')
+    ->middleware('auth');
+
+Route::put('cars/{car}', [CarsController::class, 'update'])
+    ->name('cars.update')
+    ->middleware('auth');
+
+Route::delete('cars/{car}', [CarsController::class, 'destroy'])
+    ->name('cars.destroy')
+    ->middleware('auth');

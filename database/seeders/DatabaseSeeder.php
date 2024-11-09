@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cars;
+use App\Models\User;
 use App\Models\Account;
 use App\Models\Contact;
 use App\Models\Organization;
-use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $account = Account::create(['name' => 'Acme Corporation']);
+        $account = Account::create(['name' => 'Oman Cars']);
 
         User::factory()->create([
             'account_id' => $account->id,
@@ -26,7 +27,16 @@ class DatabaseSeeder extends Seeder
             'owner' => true,
         ]);
 
-        User::factory(5)->create(['account_id' => $account->id]);
+        User::factory(1)->create(['account_id' => $account->id]);
+
+        Cars::factory()->create([
+            'account_id' => $account->id,
+            'name' => 'Haval Jolion',
+            'registration_number' => '4545',
+            'color' => 'white',
+        ]);
+
+        Cars::factory(1)->create(['account_id' => $account->id]);
 
         $organizations = Organization::factory(100)
             ->create(['account_id' => $account->id]);

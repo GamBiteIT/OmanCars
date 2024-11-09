@@ -1,4 +1,4 @@
-# Ping CRM
+# Oman Cars
 
 A demo application to illustrate how Inertia.js works.
 
@@ -67,14 +67,14 @@ Run the dev server (the output will give the address):
 php artisan serve
 ```
 
-You're ready to go! Visit Ping CRM in your browser, and login with:
+You're ready to go! Visit Oman Cars in your browser, and login with:
 
 - **Username:** johndoe@example.com
 - **Password:** secret
 
 ## Running tests
 
-To run the Ping CRM tests, run:
+To run the Oman Cars tests, run:
 
 ```
 phpunit
