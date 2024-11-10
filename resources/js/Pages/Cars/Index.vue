@@ -13,20 +13,32 @@
   <div class="bg-white rounded-md shadow overflow-x-auto">
       <table class="w-full whitespace-nowrap">
         <tr class="text-left font-bold">
-          <th class="pb-4 pt-6 px-6">Name</th>
+          <th class="pb-4 pt-6 px-6">Brand</th>
+          <th class="pb-4 pt-6 px-6">Model</th>
           <th class="pb-4 pt-6 px-6">Registration Number</th>
+          <th class="pb-4 pt-6 px-6">Year</th>
           <th class="pb-4 pt-6 px-6" colspan="2">Color</th>
         </tr>
         <tr v-for="car in cars" :key="car.id" class="hover:bg-gray-100 focus-within:bg-gray-100">
           <td class="border-t">
             <Link class="flex items-center px-6 py-4 focus:text-indigo-500" :href="`/cars/${car.id}/edit`">
               <img v-if="car.photo" class="block -my-2 mr-2 w-5 h-5 rounded-full" :src="car.photo" />
-              {{ car.name }}
+              {{ car.brand }}
+            </Link>
+          </td>
+          <td class="border-t">
+            <Link class="flex items-center px-6 py-4 focus:text-indigo-500" :href="`/cars/${car.id}/edit`">
+              {{ car.model }}
             </Link>
           </td>
           <td class="border-t">
             <Link class="flex items-center px-6 py-4" :href="`/cars/${car.id}/edit`" tabindex="-1">
               {{ car.registration_number }}
+            </Link>
+          </td>
+          <td class="border-t">
+            <Link class="flex items-center px-6 py-4" :href="`/cars/${car.id}/edit`" tabindex="-1">
+              {{ car.year}}
             </Link>
           </td>
           <td class="border-t">

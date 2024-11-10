@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Cars extends Model
 {
     use HasFactory;
-    protected $fillable = ['Name','registration_number','color','year','price_per_day','price_per_week','price_per_month','km_day','km_week','km_month','rent_out_price','photo_path'];
+    protected $fillable = ['brand','model','registration_number','color','year','price_per_day','price_per_week','price_per_month','km_day','km_week','km_month','rent_out_price','photo_path'];
 
 
     public function account(): BelongsTo
@@ -28,8 +28,8 @@ class Cars extends Model
     {
         $query->when($filters['search'] ?? null, function ($query, $search) {
             $query->where(function ($query) use ($search) {
-                $query->where('name', 'like', '%'.$search.'%')
-                    ->orWhere('registration_number', 'like', '%'.$search.'%');
+                $query->where('brand', 'like', '%'.$search.'%')->orWhere('model', 'like', '%'.$search.'%')->orWhere('registration_number', 'like', '%'.$search.'%')
+                    ->orWhere('year', 'like', '%'.$search.'%');
             });
     });
 }}

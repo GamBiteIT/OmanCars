@@ -29,14 +29,6 @@ class DatabaseSeeder extends Seeder
 
         User::factory(1)->create(['account_id' => $account->id]);
 
-        Cars::factory()->create([
-            'account_id' => $account->id,
-            'name' => 'Haval Jolion',
-            'registration_number' => '4545',
-            'color' => 'white',
-        ]);
-
-        Cars::factory(1)->create(['account_id' => $account->id]);
 
         $organizations = Organization::factory(100)
             ->create(['account_id' => $account->id]);

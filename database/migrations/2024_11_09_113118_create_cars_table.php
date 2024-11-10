@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->integer('account_id')->index();
-            $table->string('Name');
+            $table->string('brand');
+            $table->string('model');
             $table->string('registration_number')->unique();
             $table->string('color');
             $table->integer('year')->nullable();
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->integer('km_day')->nullable();
             $table->integer('km_week')->nullable();
             $table->integer('km_month')->nullable();
+            $table->float('rent_out_price')->nullable();
             $table->string('photo_path', 100)->nullable();
             $table->timestamps();
         });

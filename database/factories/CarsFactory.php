@@ -12,9 +12,6 @@ class CarsFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => 'Haval Jolion',
-            'registration_number' => '4545 TH',
-            'color' => 'white',
         ];
     }
 }
