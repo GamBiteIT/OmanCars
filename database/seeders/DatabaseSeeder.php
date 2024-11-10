@@ -20,14 +20,21 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'account_id' => $account->id,
-            'first_name' => 'John',
-            'last_name' => 'Doe',
-            'email' => 'johndoe@example.com',
-            'password' => 'secret',
+            'first_name' => 'Oman',
+            'last_name' => 'Cars',
+            'email' => 'admin@omancars.co',
+            'password' => '123456789',
             'owner' => true,
         ]);
 
-        User::factory(1)->create(['account_id' => $account->id]);
+        User::factory()->create([
+            'account_id' => $account->id,
+            'first_name' => 'Saber',
+            'last_name' => 'Noah',
+            'email' => 'saber@omancars.co',
+            'password' => '123456789',
+            'owner' => true,
+        ]);
 
 
         $organizations = Organization::factory(100)
