@@ -36,6 +36,23 @@ class DatabaseSeeder extends Seeder
             'owner' => true,
         ]);
 
+        Cars::factory()->create([
+'brand' => 'Toyota',
+'model' => 'Corolla',
+'registration_number'   => 'OMC-1234',
+'year' => 2020,
+'color' => 'Red',
+'price_per_day'  => 20000,
+'price_per_month'  => 60000,
+'price_per_week'  => 720000,
+'km_day'   => 200,
+'km_week'  => 1000,
+'km_month' => 4000,
+'rent_out_price'=>500,
+'account_id' => $account->id,
+
+        ]);
+
 
         $organizations = Organization::factory(100)
             ->create(['account_id' => $account->id]);

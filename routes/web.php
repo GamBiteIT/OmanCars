@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DailyFacturesItemsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\UsersController;
@@ -9,6 +10,8 @@ use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\DailyFacturesController;
+use App\Models\DailyFactures;
 
 /*
 |--------------------------------------------------------------------------
@@ -162,3 +165,14 @@ Route::put('cars/{car}', [CarsController::class, 'update'])
 Route::delete('cars/{car}', [CarsController::class, 'destroy'])
     ->name('cars.destroy')
     ->middleware('auth');
+
+Route::get('daily-factures',[DailyFacturesController::class,'index'])->name('dailyfactures')->middleware('auth');
+
+Route::get('daily-facture/create',[DailyFacturesController::class,'create'])->name('dailyfacture.create')->middleware('auth');
+
+Route::post('daily-facture',[DailyFacturesController::class,'store'])->name('dailyfacture.store')->middleware('auth');
+
+
+Route::get('daily-facture-item/create',[DailyFacturesItemsController::class,'create'])->name('dailyfactureitem.create')->middleware('auth');
+
+Route::post('daily-facture-items',[DailyFacturesItemsController::class,'store'])->name('dailyfactureitem.store')->middleware('auth');
